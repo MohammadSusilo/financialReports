@@ -156,6 +156,15 @@ function dashboard(data){
             data:Object.values(pengeluaranBulanan),
             backgroundColor:["#e74c3c"]
             }]
+            },
+            options:{
+                responsive:true,
+                maintainAspectRatio:false,
+                plugins:{
+                legend:{
+                position:"bottom"
+                }
+                }
             }
             
             })
@@ -173,6 +182,15 @@ function dashboard(data){
             data:Object.values(pemasukanBulanan),
             backgroundColor:["#2ecc71"]
             }]
+            },
+            options:{
+                responsive:true,
+                maintainAspectRatio:false,
+                plugins:{
+                legend:{
+                position:"bottom"
+                }
+                }
             }
             
             })
@@ -257,6 +275,12 @@ d.join("").toLowerCase().includes(k.toLowerCase())
 renderTable(hasil)
 
 }
+
+function toggleDark(){
+
+    document.body.classList.toggle("dark")
+    
+    }
 
 function exportPDF(){
 
