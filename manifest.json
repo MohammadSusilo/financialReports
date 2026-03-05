@@ -1,0 +1,8 @@
+{
+    "name":"Keuangan Keluarga",
+    "short_name":"Keuangan",
+    "display":"standalone",
+    "start_url":"index.html",
+    "background_color":"#ffffff",
+    "theme_color":"#2c3e50"
+    }

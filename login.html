@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login Keuangan Keluarga</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f6f9;
+display:flex;
+align-items:center;
+justify-content:center;
+height:100vh;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:10px;
+width:300px;
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
+
+input{
+width:100%;
+padding:10px;
+margin-top:10px;
+border:1px solid #ddd;
+border-radius:6px;
+}
+
+button{
+width:100%;
+padding:10px;
+margin-top:15px;
+background:#2c3e50;
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="card">
+
+<h3>Login</h3>
+
+<input id="username" placeholder="Username">
+
+<input id="password" type="password" placeholder="Password">
+
+<button onclick="login()">Login</button>
+
+</div>
+
+<script>
+
+async function login(){
+
+const username = document.getElementById("username").value
+const password = document.getElementById("password").value
+
+if(!username || !password){
+alert("Isi username dan password")
+return
+}
+
+const res = await fetch("https://script.google.com/macros/s/AKfycbwJ4ZKsY2c09LdDUOh1H0U7mnTouFJeP6vu9hQoRF77yjyQgLCswodQ9rHmziuKqvDw/exec",{
+method:"POST",
+body:JSON.stringify({
+action:"login",
+username:username,
+password:password
+})
+})
+
+const data = await res.json()
+
+if(data.status=="success"){
+
+localStorage.setItem("user",username)
+
+window.location.href="index.html"
+
+}else{
+
+alert("Login gagal")
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
